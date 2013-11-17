@@ -1,6 +1,4 @@
 GMail::Application.routes.draw do
-  get "roots/show"
-
   root to: 'roots#show'
 
   scope '/auth' do
@@ -10,4 +8,9 @@ GMail::Application.routes.draw do
 
   get '/login' => 'sessions#new', as: :login
   delete '/logout' => 'sessions#destroy', as: :logout
+
+  scope '/api/v1' do
+    resource :inbox, only: [:show]
+    resources :messages, only: [:show, :create]
+  end
 end
