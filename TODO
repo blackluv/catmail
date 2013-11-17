@@ -1,4 +1,11 @@
 # Phase I
+* List inbox 
+  * send over message_data with messages
+* show a message
+* send message
+
+* list starred
+* list sent
 * Inbox of emails
 * MessageMetaData (has_many, one per user who sent or received this message?)
     * Read
@@ -6,13 +13,13 @@
     * Starred (by whom?)
 * Reply button
     * Autocomplete username from global list of contacts.
+* Sent Mails (i.e. Am I the sender of this?)  (implied from sender)
+
+## Phase II: Day of MessageDat
 * Labels (have a label class per user)
     * Inbox
     * Archive
     * Trash
-* Sent Mails (i.e. Am I the sender of this?)  (implied from sender)
-
-## Phase II: Day of MessageDat
 * Inbox of conversations
 * Show a conversation as a list of messages
 * Fold up the read messages
