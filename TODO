@@ -1,21 +1,26 @@
-# Phase I
-* List inbox 
-  * send over message_data with messages
-* show a message
-* send message
+# Phase I: The Apiness
+-[x] Route to list inbox 
+     * send over message_data with messages
+-[x] show a message
+-[x] send message
+-[x] MessageMetaData 
+     * has_many, one per user who sent or received this message
+     * Read bool
+     * Draft bool
+     * Starred bool
 
+# Phase Ia: Backbone Views
+-[ ] index view to show all messages in inbox
+-[ ] show view to show message
+-[ ] sidebar view to go back to index
+-[ ] compose view to send message
+-[ ] Reply button
+    * Autocomplete username from global list of contacts.
+
+# Phase II: Day of conversations
 * list starred
 * list sent
-* Inbox of emails
-* MessageMetaData (has_many, one per user who sent or received this message?)
-    * Read
-    * Draft
-    * Starred (by whom?)
-* Reply button
-    * Autocomplete username from global list of contacts.
 * Sent Mails (i.e. Am I the sender of this?)  (implied from sender)
-
-## Phase II: Day of MessageDat
 * Labels (have a label class per user)
     * Inbox
     * Archive
@@ -25,7 +30,7 @@
 * Fold up the read messages
 * Removes archived emails from inbox
 
-# Phase II
+# Phase III
 
 ## More and more for later
 
