@@ -1,13 +1,15 @@
-window.GMail = {
-  Models: {},
-  Collections: {},
-  Views: {},
-  Routers: {},
-  initialize: function() {
-    alert('Hello from Backbone!');
-  }
+window.GM = {
+    Models: {},
+    Collections: {},
+    Views: {},
+    Routers: {},
+    initialize: function() {
+        new GM.Routers.mail({});
+        Backbone.history.start();
+
+    }
 };
 
 $(document).ready(function(){
-  GMail.initialize();
+    GM.initialize();
 });
