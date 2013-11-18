@@ -16,6 +16,8 @@ gem 'omniauth'
 gem 'omniauth-oauth'
 gem 'omniauth-github'
 gem 'figaro'
+gem 'jbuilder'
+
 group :production, :development do
   gem 'unicorn'
 end

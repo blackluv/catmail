@@ -9,8 +9,10 @@ GMail::Application.routes.draw do
   get '/login' => 'sessions#new', as: :login
   delete '/logout' => 'sessions#destroy', as: :logout
 
-  scope '/api/v1' do
-    resource :inbox, only: [:show]
-    resources :messages, only: [:show, :create]
+  namespace 'api' do
+    namespace 'v1' do
+      resource :inbox, only: [:show]
+      resources :messages, only: [:show, :create]
+    end
   end
 end

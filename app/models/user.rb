@@ -3,6 +3,13 @@ class User < ActiveRecord::Base
 
   validates :provider, :uid, :session_token, presence: true
 
+  has_many :message_metadata,
+           foreign_key: :user_email,
+           primary_key: :email
+
+  has_many :messages,
+           through: :message_metadata
+
   def self.generate_session_token
     SecureRandom::urlsafe_base64(20)
   end
@@ -29,5 +36,13 @@ class User < ActiveRecord::Base
 
   def ensure_session_token
     self.session_token ||= User.generate_session_token
+  end
+
+  def inbox
+    self
+      .message_metadata
+      .joins(:message)
+      .where("messages.sender_email != ?", email)
+      .includes(:message)
   end
 end
