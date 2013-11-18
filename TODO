@@ -10,7 +10,7 @@
      * Starred bool
 
 # Phase Ia: Backbone Views
--[ ] index view to show all messages in inbox
+-[x] index view to show all messages in inbox
 -[ ] show view to show message
 -[ ] sidebar view to go back to index
 -[ ] compose view to send message

@@ -1,0 +1,6 @@
+<ul>
+    <p> new msgs </p>
+<% this.collection.each(function(message) { %>
+   <li><%= JST['inbox/message']({ model: message }) %></li>
+<% }); %>
+</ul>

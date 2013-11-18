@@ -4,7 +4,7 @@ window.GM = {
     Views: {},
     Routers: {},
     initialize: function() {
-        new GM.Routers.mail({});
+        new GM.Routers.Mail({});
         Backbone.history.start();
 
     }
