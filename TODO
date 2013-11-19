@@ -11,7 +11,7 @@
 
 # Phase Ia: Backbone Views
 -[x] index view to show all messages in inbox.
--[ ] message show view.
+-[x] message show view.
 -[ ] sidebar view to go back to index
 -[ ] compose view to send message
 -[ ] Reply button

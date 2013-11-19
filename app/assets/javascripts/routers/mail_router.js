@@ -1,7 +1,7 @@
 GM.Routers.Mail = Backbone.Router.extend({
     routes: {
         '': 'inbox',
-        'message/:id': 'show'
+        'messages/:id': 'show'
     },
 
     initialize: function (options) {
@@ -22,5 +22,13 @@ GM.Routers.Mail = Backbone.Router.extend({
     },
 
     show: function(id) {
+        var message = GM.Store.inbox.get(id);
+        var view = new GM.Views.MessageShow({ model: message });
+        this._swap(view);
+    },
+
+    composeNew: function() {
+        var message = new GM.Models.Message();
+
     },
 });
