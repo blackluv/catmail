@@ -3,10 +3,16 @@ window.GM = {
     Collections: {},
     Views: {},
     Routers: {},
-    initialize: function() {
-        new GM.Routers.Mail({});
-        Backbone.history.start();
+    Store: {},
 
+    initialize: function() {
+        var inbox = GM.Store.inbox = new GM.Collections.Inbox();
+        inbox.fetch({
+            success: function() {
+                new GM.Routers.Mail({rootEl: '#content'});
+                Backbone.history.start();
+            },
+        });
     }
 };
 

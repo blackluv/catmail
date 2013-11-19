@@ -1,15 +1,26 @@
 GM.Routers.Mail = Backbone.Router.extend({
     routes: {
-        '': 'inbox'
+        '': 'inbox',
+        'message/:id': 'show'
+    },
+
+    initialize: function (options) {
+        this.$rootEl = $(options.rootEl);
+    },
+
+    _swap: function(newView) {
+        this._currentView && this._currentView.remove();
+        this._currentView = newView;
+        this.$rootEl.html(newView.render().$el);
     },
 
     inbox: function () {
-        console.log('hello world');
-        var inbox = new GM.Collections.Inbox();
-        inbox.fetch({success: function() {
-            var view = new GM.Views.Inbox({ collection: inbox });
-            $('#content').append(view.render().$el);
-        }});
+        var inbox = GM.Store.inbox;
+        inbox.fetch({});
+        var view = new GM.Views.Inbox({ collection: inbox });
+        this._swap(view);
+    },
 
-    }
+    show: function(id) {
+    },
 });
