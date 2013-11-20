@@ -19,7 +19,7 @@ module Api::V1
         render 'messages/show'
       else
         render :json => {message: "Not sent to you!!"}, status: 402
-
+      end
     end
   end
 end
