@@ -1,8 +1,12 @@
 GM.Models.Message = Backbone.Model.extend({
+    url: '/api/v1/messages',
+
     parse: function(response) {
-        delete(response.message.id);
-        _.extend(response, response.message);
-        delete(response.message);
+        if (response.message) {
+            delete(response.message.id);
+            _.extend(response, response.message);
+            delete(response.message);
+        }
         return response;
     },
 });

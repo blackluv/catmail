@@ -6,7 +6,7 @@ GM.Views.Inbox = Backbone.View.extend({
     id: 'inbox',
 
     initialize: function () {
-        this.listenTo(this.collection, "change", this.render);
+        this.listenTo(this.collection, "add", this.render);
     },
 
     render: function () {

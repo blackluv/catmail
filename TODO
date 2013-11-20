@@ -13,7 +13,7 @@
 -[x] index view to show all messages in inbox.
 -[x] message show view.
 -[ ] sidebar view to go back to index
--[ ] compose view to send message
+-[x] compose view to send message
 -[ ] Reply button
     * Autocomplete username from global list of contacts.
 

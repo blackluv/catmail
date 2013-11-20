@@ -1,8 +1,8 @@
 module Api::V1
   class InboxesController < ApiController
     def show
-      render :json => current_user.inbox,
-             include: [:message]
+      @inbox = current_user.inbox
+      render 'messages/inbox'
     end
   end
 end
