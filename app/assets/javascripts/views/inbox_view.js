@@ -6,7 +6,12 @@ GM.Views.Inbox = Backbone.View.extend({
     id: 'inbox',
 
     events: {
-        "click tr": "show"
+        "click tr": "show",
+        "click #refresh-button": "render"
+    },
+    
+    refresh: function () {
+        this.collection.fetch();
     },
     
     show: function(event) {

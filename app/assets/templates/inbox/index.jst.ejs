@@ -1,14 +1,16 @@
+<span class="content-label">Inbox</span>
+    <button type="button" id="refresh-button" class="btn btn-default pull-right">
+            <span class="glyphicon glyphicon-refresh"></span>
+    </button>
+
+<% if (this.collection.isEmpty()) { %>
+    <p><i>Inbox Zero! :)</i></p>
+<% } else { %>
 <table class="table table-hover">
-    <thead>
-        <tr>
-            <th>From</th>
-            <th>Subject</th>
-            <th>Preview</th>
-        </tr>
-    </thead>
     <tbody>
         <% this.collection.each(function(message) { %>
             <%= JST['inbox/message']({ model: message }) %>
         <% }); %>
     </tbody>
 </table>
+<% } %>
