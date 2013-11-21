@@ -1,1 +1,5 @@
-<a href="#messages/<%= model.id %>"><%= model.escape('subject') %></a> - <%= model.escape('body').slice(0, 55) %>
+<tr data-id="<%= model.id %>">
+    <td><%= model.escape('sender_email') %></td>
+    <td><%= model.escape('subject') %></td>
+    <td><%= model.escape('body').slice(0,55)%></td>
+</tr>

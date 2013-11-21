@@ -8,6 +8,18 @@ GM.Routers.Mail = Backbone.Router.extend({
 
     initialize: function (options) {
         this.$rootEl = $(options.rootEl);
+        this.$sidebarEl = $(options.sidebarEl);
+        this.installSidebar()
+    },
+    
+    installSidebar: function() {
+        var view = new GM.Views.Sidebar()
+        $('#sidebar').html(view.render().$el)
+        this._sidebar = view;
+    },
+    
+    _activate: function(view) {
+        this._sidebar.activate(view);
     },
 
     _swap: function(newView) {
@@ -21,6 +33,7 @@ GM.Routers.Mail = Backbone.Router.extend({
         inbox.fetch();
         var view = new GM.Views.Inbox({ collection: inbox });
         this._swap(view);
+        this._activate('inbox');
     },
 
     show: function(id) {
@@ -43,5 +56,6 @@ GM.Routers.Mail = Backbone.Router.extend({
         var message = new GM.Models.Message();
         var view = new GM.Views.MessageCompose({ model: message });
         this._swap(view);
-    },
+        this._activate('compose');
+    }
 });

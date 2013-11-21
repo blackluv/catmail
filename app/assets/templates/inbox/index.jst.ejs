@@ -1,6 +1,14 @@
-<ul>
-    <p> new msgs </p>
-<% this.collection.each(function(message) { %>
-   <li><%= JST['inbox/message']({ model: message }) %></li>
-<% }); %>
-</ul>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>From</th>
+            <th>Subject</th>
+            <th>Preview</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% this.collection.each(function(message) { %>
+            <%= JST['inbox/message']({ model: message }) %>
+        <% }); %>
+    </tbody>
+</table>

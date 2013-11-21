@@ -14,8 +14,9 @@
 -[x] message show view.
 -[ ] sidebar view to go back to index
 -[x] compose view to send message
+     -[ ] Autocomplete username from global list of contacts.
 -[ ] Reply button
-    * Autocomplete username from global list of contacts.
+
 
 # Phase II: Day of conversations
 * list starred

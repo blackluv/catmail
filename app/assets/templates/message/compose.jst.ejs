@@ -1,6 +1,20 @@
-<form id="message-compose-form">
-      <label>to: <input id="to_emails" type="text" width=100 placeholder="dylanclark112@gmail.com,ned@appacademy.io"></label><br />
-      <label>subject: <input id="subject" type="text" placeholder="Cats, I love them!" ></label><br />
-      <label>body: <textarea id="body" placeholder="I really love cats. Let me tell you why..."></textarea></label><br />
-      <input type="submit" value="send it, friend.">
+<form id="message-compose-form" class="form-horizontal">
+    <div class="form-group pseudo-textbox">
+        <label for="to_emails" class="col-sm-1 control-label">To</label>
+        <div class="col-sm-11">
+            <input type="email" class="form-control compose-control" id="to_emails" placeholder="dylanclark112@gmail.com,ned@appacademy.io">
+        </div>
+    </div>
+      
+    <div class="form-group pseudo-textbox">
+        <label for="subject" class="col-sm-1 control-label">Subject</label>
+        <div class="col-sm-11">
+            <input type="text" class="form-control compose-control" id="subject" placeholder="Cats, I love them!">
+        </div>
+    </div>
+      
+    <div class="form-group">
+        <textarea class="form-control" rows="3" id="body" placeholder="I really love cats. Let me tell you why..."></textarea>
+    </div>
+    <button type="button" class="btn btn-danger btn-lg pull-right" id="send-button">Send</button>
 </form>     

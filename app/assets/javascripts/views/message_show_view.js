@@ -5,6 +5,14 @@ GM.Views.MessageShow = Backbone.View.extend({
     className: 'message',
     id: 'message-show',
 
+    events: {
+        "click #inbox-button": "goToInbox"
+    },
+
+    goToInbox: function () {
+        Backbone.history.navigate('', {trigger: true})
+    },
+
     initialize: function () {
     },
 

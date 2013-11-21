@@ -5,6 +5,15 @@ GM.Views.Inbox = Backbone.View.extend({
     className: 'inbox',
     id: 'inbox',
 
+    events: {
+        "click tr": "show"
+    },
+    
+    show: function(event) {
+        var clickedUrl = 'messages/' + $(event.currentTarget).data("id")
+        Backbone.history.navigate(clickedUrl, {trigger: true});
+    },
+
     initialize: function () {
         this.listenTo(this.collection, "add", this.render);
     },

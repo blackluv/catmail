@@ -7,6 +7,7 @@ GM.Views.MessageCompose = Backbone.View.extend({
 
     events: {
         "submit #message-compose-form": "submit",
+        "click #send-button": "submit"
     },
 
     initialize: function () {
