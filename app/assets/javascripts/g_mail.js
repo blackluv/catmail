@@ -9,7 +9,7 @@ window.GM = {
         var inbox = GM.Store.inbox = new GM.Collections.Inbox();
         inbox.fetch({
             success: function() {
-                new GM.Routers.Mail({rootEl: '#content'});
+                new GM.Routers.Mail({rootEl: '#content', sidebarEl: '#sidebar'});
                 Backbone.history.start();
             },
         });
