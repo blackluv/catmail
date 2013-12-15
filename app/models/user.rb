@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   def inbox
     self
       .message_metadata
-      .joins(:message)
+      .joins(:message) #TODO Consider moving includes up here.
       .where("messages.sender_email != ?", email)
       .includes(:message)
   end

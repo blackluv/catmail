@@ -1,6 +1,6 @@
 class MessageMetadatum < ActiveRecord::Base
   attr_accessible :user_email, :message_id, :read, :draft, :starred
-
+  #TODO draft should be attribute of message, not metadata.
   validates :user_email,
             :message,
             presence: true
