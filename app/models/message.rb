@@ -24,6 +24,10 @@ class Message < ActiveRecord::Base
     message
   end
 
+  def find_metadata_by_user_email(email)
+    metadata.find_by_user_email(email)
+  end
+
   def to_emails_arr
     to_emails.split(',')
   end
