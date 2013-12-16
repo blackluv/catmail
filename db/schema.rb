@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131117224628) do
+ActiveRecord::Schema.define(:version => 20131216022322) do
 
   create_table "message_metadata", :force => true do |t|
     t.string   "user_email",                    :null => false
@@ -28,14 +28,16 @@ ActiveRecord::Schema.define(:version => 20131117224628) do
   add_index "message_metadata", ["user_email"], :name => "index_message_metadata_on_user_email"
 
   create_table "messages", :force => true do |t|
-    t.string   "sender_email", :null => false
+    t.string   "sender_email",    :null => false
     t.string   "to_emails"
     t.text     "subject"
     t.text     "body"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "conversation_id", :null => false
   end
 
+  add_index "messages", ["conversation_id"], :name => "index_messages_on_conversation_id"
   add_index "messages", ["sender_email"], :name => "index_messages_on_sender_email"
 
   create_table "users", :force => true do |t|
