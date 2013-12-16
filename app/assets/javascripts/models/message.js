@@ -1,6 +1,3 @@
-GM.Models.Message = Backbone.Model.extend({
+GM.Models.Message = Backbone.RelationalModel.extend({
     urlRoot: '/api/v1/messages',
-    initialize: function () {
-
-    }
 });
