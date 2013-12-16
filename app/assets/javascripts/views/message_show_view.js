@@ -10,10 +10,11 @@ GM.Views.MessageShow = Backbone.View.extend({
     },
 
     goToInbox: function () {
-        Backbone.history.navigate('', {trigger: true})
+        Backbone.history.navigate('', {trigger: true});
     },
 
     initialize: function () {
+        this.listenTo(this.model, 'sync', this.render.bind(this));
     },
 
     render: function () {

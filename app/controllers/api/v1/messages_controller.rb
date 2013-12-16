@@ -5,8 +5,8 @@ module Api::V1
       params[:message][:sender_email] = current_user.email
 
       @message = Message.author(params[:message])
-      @metadata = @message.find_metadata_by_user_email(current_user.email)
       if @message.save
+        @metadata = @message.find_metadata_by_user_email(current_user.email)
         render 'messages/show'
       else
         render :json => @message.errors.full_messages, status: 422

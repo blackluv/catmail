@@ -22,7 +22,8 @@ GM.Routers.Mail = Backbone.Router.extend({
     },
 
     messageShow: function(id) {
-        var message = GM.Models.Message.findOrCreate(id);
+        var message = GM.Models.Message.findOrCreate({ id: id });
+        message.fetch();
         var view = new GM.Views.MessageShow({ model: message });
         this._swap(view);
     },
@@ -33,8 +34,8 @@ GM.Routers.Mail = Backbone.Router.extend({
 
         function renderReply() {
             var replyMessage = new GM.Models.Message({
-                to_emails: message.escape('sender_email'),
-                subject: 'RE:' + message.escape('subject')
+                to_emails: message.get('sender_email'),
+                subject: 'RE:' + message.get('subject')
             });
             var view = new GM.Views.MessageCompose({ model: replyMessage });
             this._swap(view);
