@@ -12,10 +12,20 @@
 # Phase Ia: Backbone Views
 -[x] index view to show all messages in inbox.
 -[x] message show view.
--[ ] sidebar view to go back to index
+-[x] sidebar view to go back to index
 -[x] compose view to send message
      -[ ] Autocomplete username from global list of contacts.
 -[ ] Reply button
+
+# Conversations
+* Conversations are just an id field on message.
+* When authoring a new message in backbone, set conversation_id to be nil.
+* When authoring a reply in backbone, set conversation_id to be the previous message's conversation_id.
+* When showing a conversation in backbone, fetch rest of conversation by using conversation resource.
+* Add a backbone collection "Conversation" which has message models.
+* Conversation resource should return array of 'messages'.
+* When authoring a new message in rails, produce the "next conversation id" which is one more than the greatest id.
+* When fetching inbox grab only conversations, by grouping by conversation id and sorting groups by message id.
 
 
 # Phase II: Day of conversations
