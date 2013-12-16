@@ -6,6 +6,7 @@ window.GM = {
     Store: {},
 
     initialize: function() {
+        // They're going to want the inbox.
         GM.Store.inbox.fetch();
         new GM.Routers.Mail({
             rootSel: '#content',
