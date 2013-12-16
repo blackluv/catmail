@@ -7,9 +7,8 @@ GM.Routers.Mail = Backbone.Router.extend({
     },
 
     initialize: function (options) {
-        this.$content = $(options.rootEl);
-        this.$sidebar = $(options.sidebarEl);
-        debugger
+        this.$content = $(options.rootSel);
+        this.$sidebar = $(options.sidebarSel);
 
         this.installSidebar();
     },

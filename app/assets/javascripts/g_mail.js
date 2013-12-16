@@ -6,13 +6,12 @@ window.GM = {
     Store: {},
 
     initialize: function() {
-        var inbox = GM.Store.inbox = new GM.Collections.Inbox();
-        inbox.fetch({
-            success: function() {
-                new GM.Routers.Mail({rootEl: '#content', sidebarEl: '#sidebar'});
-                Backbone.history.start();
-            },
+        GM.Store.inbox.fetch();
+        new GM.Routers.Mail({
+            rootSel: '#content',
+            sidebarSel: '#sidebar'
         });
+        Backbone.history.start();
     }
 };
 
