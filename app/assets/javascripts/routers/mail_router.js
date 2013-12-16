@@ -22,19 +22,23 @@ GM.Routers.Mail = Backbone.Router.extend({
     },
 
     messageShow: function(id) {
-        var message = GM.Store.inbox.get(id);
+        var message = GM.Models.Message.findOrCreate(id);
         var view = new GM.Views.MessageShow({ model: message });
         this._swap(view);
     },
 
     messageReply: function(id) {
-        var message = GM.Store.inbox.get(id);
-        var replyMessage = new GM.Models.Message({
-            to_emails: message.escape('sender_email'),
-            subject: 'RE:' + message.escape('subject')
-        });
-        var view = new GM.Views.MessageCompose({ model: replyMessage });
-        this._swap(view);
+        var message = GM.Models.Message.findOrCreate(id);
+        message.fetch({ success: renderReply.bind(this) });
+
+        function renderReply() {
+            var replyMessage = new GM.Models.Message({
+                to_emails: message.escape('sender_email'),
+                subject: 'RE:' + message.escape('subject')
+            });
+            var view = new GM.Views.MessageCompose({ model: replyMessage });
+            this._swap(view);
+        };
     },
 
     messageNew: function() {
