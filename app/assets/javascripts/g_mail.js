@@ -4,6 +4,7 @@ window.GM = {
     Views: {},
     Routers: {},
     Store: {},
+    Helpers: {},
 
     initialize: function() {
         // They're going to want the inbox.
