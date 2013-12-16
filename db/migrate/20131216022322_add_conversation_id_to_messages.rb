@@ -1,6 +1,6 @@
 class AddConversationIdToMessages < ActiveRecord::Migration
   def change
-    add_column :messages, :conversation_id, :integer
+    add_column :messages, :conversation_id, :string
     Message.connection.execute(<<-SQL)
     UPDATE
       messages
