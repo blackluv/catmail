@@ -5,9 +5,6 @@ GM.Views.Sidebar = Backbone.View.extend({
     className: 'sidebar',
     id: 'sidebar-show',
 
-    initialize: function () {
-    },
-
     render: function () {
         this.$el.html(this.template({}));
         return this;
