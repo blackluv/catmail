@@ -1,3 +1,6 @@
 GM.Models.Message = Backbone.Model.extend({
-    url: '/api/v1/messages',
+    urlRoot: '/api/v1/messages',
+    initialize: function () {
+
+    }
 });
