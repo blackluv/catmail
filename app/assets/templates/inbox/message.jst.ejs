@@ -1,5 +1,5 @@
-<tr data-id="<%= model.id %>">
+<tr class="message-row" data-id="<%= model.id %>">
     <td><%= model.escape('sender_email') %></td>
     <td><%= model.escape('subject') %></td>
-    <td><%= model.escape('body').slice(0,55)%></td>
+    <td><%= GM.Helpers.truncatePreview(model.escape('body')) %></td>
 </tr>
