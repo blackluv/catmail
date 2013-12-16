@@ -12,10 +12,10 @@ GM.Views.Sidebar = Backbone.View.extend({
         this.$el.html(this.template({}));
         return this;
     },
-    
+
     activate: function(view) {
         var linkSelector = "#" + view + "-link";
-        this.$el.find('li').removeClass('active')
-        this.$el.find(linkSelector).addClass('active')
+        this.$el.find('li').removeClass('active');
+        this.$el.find(linkSelector).addClass('active');
     }
 });
