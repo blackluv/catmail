@@ -39,10 +39,27 @@ class User < ActiveRecord::Base
   end
 
   def inbox
-    self
-      .message_metadata
-      .joins(:message) #TODO Consider moving includes up here.
-      .where("messages.sender_email != ?", email)
-      .includes(:message)
+    MessageMetadatum.find_by_sql([<<-SQL, email, email])
+      SELECT
+        t4.*
+      FROM
+        messages AS t1
+      JOIN
+        message_metadata AS t4
+      ON
+        (t1.id = t4.message_id)
+      JOIN (
+        SELECT
+          max(t3.id) id
+        FROM
+          messages AS t3
+        GROUP BY
+          t3.conversation_id
+        ) AS t2
+      ON
+        t1.id = t2.id
+      WHERE
+        t4.user_email = ? AND t1.sender_email != ?
+    SQL
   end
 end
