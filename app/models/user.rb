@@ -66,4 +66,11 @@ class User < ActiveRecord::Base
         t4.user_email = ? AND t1.sender_email != ?
     SQL
   end
+
+  def conversation(id)
+    message_metadata
+      .joins(:message)
+      .where('messages.conversation_id = ?', id)
+      .includes(:message)
+  end
 end

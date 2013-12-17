@@ -12,7 +12,9 @@ GMail::Application.routes.draw do
   namespace 'api' do
     namespace 'v1' do
       resource :inbox, only: [:show]
-      resources :messages, only: [:show, :create]
+      resources :messages, only: [:show, :create] do
+        resource :conversation, only: [:show]
+      end
     end
   end
 end
