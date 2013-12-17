@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
   end
 
   def inbox
+    # This query gets the MessageMetadatum for the newest message
+    # for each each conversation_id. Messages where the current
+    # user is the sender or not a recipient of a message_metadatum
+    # are filtered out.
     MessageMetadatum.find_by_sql([<<-SQL, email, email])
       SELECT
         t4.*
