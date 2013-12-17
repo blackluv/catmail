@@ -35,6 +35,7 @@ GM.Routers.Mail = Backbone.Router.extend({
         function renderReply() {
             var replyMessage = new GM.Models.Message({
                 to_emails: message.get('sender_email'),
+                conversation_id: message.get('conversation_id'),
                 subject: 'RE:' + message.get('subject')
             });
             var view = new GM.Views.MessageCompose({ model: replyMessage });

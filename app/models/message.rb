@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  attr_accessible :sender_email, :to_emails, :subject, :body
+  attr_accessible :sender_email, :to_emails, :subject, :body, :conversation_id
 
   before_validation :ensure_conversation_id
 
