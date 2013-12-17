@@ -18,14 +18,14 @@
 -[ ] Reply button
 
 # Conversations
-* Conversations are just an id field on message.
-* When authoring a new message in backbone, set conversation_id to be nil.
-* When authoring a reply in backbone, set conversation_id to be the previous message's conversation_id.
-* When showing a conversation in backbone, fetch rest of conversation by using conversation resource.
-* Add a backbone collection "Conversation" which has message models.
-* Conversation resource should return array of 'messages'.
-* When authoring a new message in rails, produce the "next conversation id" which is one more than the greatest id.
-* When fetching inbox grab only conversations, by grouping by conversation id and sorting groups by message id.
+-[x] Conversations are just an id field on message.
+-[x] When authoring a new message in backbone, set conversation_id to be nil.
+-[x] When authoring a reply in backbone, set conversation_id to be the previous message's conversation_id.
+-[ ] When showing a conversation in backbone, fetch rest of conversation by using conversation resource.
+-[ ] Add a backbone collection "Conversation" which has message models.
+-[ ] Conversation resource should return array of 'messages'.
+-[x] When authoring a new message in rails, produce the "next conversation id" which is one more than the greatest id.
+-[x] When fetching inbox grab only conversations, by grouping by conversation id and sorting groups by message id.
 
 
 # Phase II: Day of conversations
