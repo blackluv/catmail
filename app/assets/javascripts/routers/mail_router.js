@@ -24,7 +24,10 @@ GM.Routers.Mail = Backbone.Router.extend({
     messageShow: function(id) {
         var message = GM.Models.Message.findOrCreate({ id: id });
         message.fetch();
-        var view = new GM.Views.MessageShow({ model: message });
+        var conversation = message.conversation();
+        conversation.fetch();
+
+        var view = new GM.Views.MessageShow({ conversation: message.conversation() });
         this._swap(view);
     },
 

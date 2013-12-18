@@ -1,9 +1,9 @@
 # Phase I: The Apiness
-- [x] Route to list inbox 
+- [x] Route to list inbox
      * send over message_data with messages
 - [x] show a message
 - [x] send a message
-- [x] MessageMetaData 
+- [x] MessageMetaData
      * has_many, one per user who sent or received this message
      * Read bool
      * Draft bool
