@@ -6,8 +6,15 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
+  def create_guest
+    user = User.create_guest
+    session[:session_token] = user.session_token
+
+    redirect_to root_url
+  end
+
   def fail
-    render :json => {msg: "github auth failed"}
+    render :json => { msg: "github auth failed" }
   end
 
   def new

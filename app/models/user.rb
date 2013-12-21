@@ -34,6 +34,19 @@ class User < ActiveRecord::Base
     user
   end
 
+  def self.create_guest
+    user = User.new
+    user.provider = 'guest'
+    user.uid = Random.rand(1_000_000)
+    user.name = 'Christopher'
+    user.email = 'CGuest' + user.uid.to_s + '@example.com'
+    user.username = 'CGuest' + user.uid.to_s
+
+    user.session_token = User.generate_session_token
+    user.save!
+    user
+  end
+
   def ensure_session_token
     self.session_token ||= User.generate_session_token
   end
