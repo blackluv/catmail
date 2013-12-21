@@ -5,14 +5,19 @@
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Hello, <%= current_user.username %>!
+                <%= logged_in? ? current_user.username : 'Log In' %>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-                <li><a href="#">View Profile</a></li>
-                <li><a href="#">Preferences</a></li>
-                <li class="divider"></li>
-                <li><a href="#"><span class="text-danger">Log Out</span></a></li>
+                <% if logged_in? %>
+                    <li><a href="#profile">View Profile</a></li>
+                    <li><a href="#preferences">Preferences</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/logout"><span class="text-danger">Log Out</span></a></li>
+                <% else %>
+                    <li><a href="/auth/github">With Github</a></li>
+                    <li><a href="/guest-login">As Guest</a></li>
+                <% end %>
             </ul>
         </li>
     </ul>

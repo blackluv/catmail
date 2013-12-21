@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  before_validation :ensure_session_token, on: :create
+  before_validation :ensure_session_token
 
   validates :provider, :uid, :session_token, presence: true
 

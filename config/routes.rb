@@ -7,8 +7,8 @@ GMail::Application.routes.draw do
   end
 
   get '/login' => 'sessions#new', as: :login
-  get '/loginguest' => 'sessions#create_guest', as: :loginguest
-  delete '/logout' => 'sessions#destroy', as: :logout
+  get '/guest-login' => 'sessions#create_guest', as: :loginguest
+  get '/logout' => 'sessions#destroy', as: :logout
 
   namespace 'api' do
     namespace 'v1' do
