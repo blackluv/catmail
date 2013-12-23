@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     if current_user
       redirect_to root_url
     else
-      render :new
+      render :new2
     end
   end
 
